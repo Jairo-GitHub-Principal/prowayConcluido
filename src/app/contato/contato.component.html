@@ -1,0 +1,128 @@
+<h2 class="contact__title"> Entre em contato</h2>
+<section class="contact__container">
+    <form class="contact-form" [formGroup]="formContato" (ngSubmit)="enviarFormulario()">
+
+        <input type="text" placeholder="informe seu nome" 
+            
+            formControlName="nome"
+            [class.valid]="formContato.controls['nome'].valid"
+            [class.invalid]="formContato.controls['nome'].invalid &&
+            (formContato.controls['nome'].touched ||
+            formContato.controls['nome'].dirty)"
+        >
+        <div  
+        *ngIf="formContato.controls['nome'].invalid  &&
+        (formContato.controls['nome'].touched ||formContato.controls['nome'].dirty)">
+ 
+            <small class="error-message"
+                     *ngIf="formContato.controls['nome'].hasError('minlength')"> 
+                    esse campo exige uma quantidade minima de 4 caractere 
+            </small> 
+          
+            <small class="error-message" 
+                    *ngIf="formContato.controls['nome'].hasError('required')"> 
+                    esse campo é de prenchimento obrigatorio 
+            </small> 
+        </div>
+
+        <input type="text" placeholder="informe o assunto"
+        formControlName="assunto"
+            [class.valid]="formContato.controls['assunto'].valid"
+            [class.invalid]="formContato.controls['assunto'].invalid &&
+            (formContato.controls['assunto'].touched ||
+            formContato.controls['assunto'].dirty)"
+        >
+        <div  
+        *ngIf="formContato.controls['assunto'].invalid  &&
+        (formContato.controls['assunto'].touched ||formContato.controls['assunto'].dirty)">
+ 
+            <small class="error-message"
+                     *ngIf="formContato.controls['assunto'].hasError('minlength')"> 
+                    esse campo exige uma quantidade minima de 10 caractere 
+            </small> 
+          
+            <small class="error-message" 
+                    *ngIf="formContato.controls['assunto'].hasError('required')"> 
+                    esse campo é de prenchimento obrigatorio 
+            </small> 
+        </div>
+        <input type="tel" placeholder="(00) 0 0000-0000"
+          mask="(00) 0 0000-0000"
+          formControlName="telefone"
+        [class.valid]="formContato.controls['telefone'].valid"
+        [class.invalid]="formContato.controls['telefone'].invalid &&
+        (formContato.controls['telefone'].touched ||
+        formContato.controls['telefone'].dirty)"
+        >
+        <div  
+        *ngIf="formContato.controls['telefone'].invalid  &&
+        (formContato.controls['telefone'].touched ||formContato.controls['telefone'].dirty)">
+ 
+            <small class="error-message"
+                     *ngIf="formContato.controls['telefone'].hasError('minlength')"> 
+                    esse campo exige um telefone valido com 11 caracteres
+            </small> 
+          
+            <small class="error-message" 
+                    *ngIf="formContato.controls['telefone'].hasError('required')"> 
+                    esse campo é de prenchimento obrigatorio 
+            </small> 
+        </div>
+        
+        <input type="email" placeholder="digite seu e-mail"
+        formControlName="email"
+        [class.valid]="formContato.controls['email'].valid"
+        [class.invalid]="formContato.controls['email'].invalid &&
+        (formContato.controls['email'].touched ||
+        formContato.controls['email'].dirty)"
+        >
+        
+        <div  
+        *ngIf="formContato.controls['email'].invalid  &&
+        (formContato.controls['email'].touched ||formContato.controls['email'].dirty)">
+ 
+            <small class="error-message"
+                     *ngIf="formContato.controls['email'].hasError('email')"> 
+                    esse campo exige uma email valido
+            </small> 
+          
+            <small class="error-message" 
+                    *ngIf="formContato.controls['email'].hasError('required')"> 
+                    esse campo é de prenchimento obrigatorio 
+            </small> 
+        </div>
+
+        <textarea type="text" placeholder="Digite sua mensagem"
+        rows="5"
+
+        formControlName="mensagem"
+        [class.valid]="formContato.controls['mensagem'].valid"
+        [class.invalid]="formContato.controls['mensagem'].invalid &&
+        (formContato.controls['mensagem'].touched ||
+        formContato.controls['mensagem'].dirty)"
+        > </textarea>
+        <div  
+        *ngIf="formContato.controls['mensagem'].invalid  &&
+        (formContato.controls['mensagem'].touched ||formContato.controls['mensagem'].dirty)">
+ 
+            <small class="error-message"
+                     *ngIf="formContato.controls['mensagem'].hasError('minlength')"> 
+                    esse campo exige uma quantidade minima de 20 caractere 
+            </small> 
+          
+            <small class="error-message" 
+                    *ngIf="formContato.controls['mensagem'].hasError('required')"> 
+                    esse campo é de prenchimento obrigatorio 
+            </small> 
+        </div>
+        <button type="submit" [disabled]="formContato.invalid"> Enviar</button>
+
+    </form>
+    <address>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.6737498611947!2d-46.79509792554967!3d-23.68762246624133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce52fa151bf04f%3A0x50fbe68c842fb6ab!2sR.%20Luar%20do%20Sert%C3%A3o%2C%20194%20-%20Chacara%20Santa%20Maria%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2006856-130!5e0!3m2!1spt-BR!2sbr!4v1682228088610!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>R. Luar do Sertão, 194 - Chacara Santa Maria, São Paulo - SP, 06856-130</p>
+    </address>
+</section>
